@@ -112,7 +112,7 @@ setTimeout(function() {
     if (!error && response.statusCode == 200) {
         var info = JSON.parse(body);
         
-        console.log("values : "+info.values[0][0])
+        //console.log("values : "+info.values[0][0])
 
         //console.log("values : "+info.values)
         
