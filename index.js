@@ -39,7 +39,7 @@ var headers = {
 
 
 
-app.get('/user', (req, res) => {
+app.get('/', (req, res) => {
   res.end("ok")
 })
 
