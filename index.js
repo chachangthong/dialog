@@ -236,7 +236,7 @@ return res.json({
         }else if (body == "Id not found" || body <= 9 ){
         // ไม่มีข่อมูล ส่งข้อมูล user ไปเก็บ /// ตอบกลับ ติดต่อเจ้าหน้าที่
         var sendName = encodeURI(name);       
-      request("https://docs.google.com/forms/u/2/d/1iUGX58guFhU3bkt1OglhOGoDuv5i6mPQAs35gy4IOcw/formResponse?ifq&entry.1691916586="+iiddd+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=00&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
+      request("https://docs.google.com/forms/u/2/d/1iUGX58guFhU3bkt1OglhOGoDuv5i6mPQAs35gy4IOcw/formResponse?ifq&entry.1691916586="+iiddd+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=0&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
 
 return res.json({
     "messages": [
