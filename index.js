@@ -59,7 +59,7 @@ iiddd = req.body.originalRequest.data.source.userId;
 console.log("uID -------------- : " + iiddd)
 
 //ส่ง uid ไปไว้
-request("https://docs.google.com/forms/u/2/d/1TX5G9W93A3r3qX29TDCZ-I5UQ7ek1nKpbRE99_IUUn0/formResponse?ifq&entry.815062337="+iiddd+"&submit=Submit");
+//request("https://docs.google.com/forms/u/2/d/1TX5G9W93A3r3qX29TDCZ-I5UQ7ek1nKpbRE99_IUUn0/formResponse?ifq&entry.815062337="+iiddd+"&submit=Submit");
 
 
 var options = {
@@ -76,29 +76,24 @@ var options = {
         var info = JSON.parse(body);
         name = info.displayName;
         pictureUrl = info.pictureUrl;
-        // Print out the response body
-        //console.log(name)
-        //console.log(info)
-        
-        //console.log(res.userId)
-      
-var Uu = '"'+iiddd+'"'   // แปลง ID
+
+//var Uu = '"'+iiddd+'"'   // แปลง ID
 var printdd =  "{ id: "+iiddd+", name: "+name+" }" 
 console.log(printdd)
 
 
-setTimeout(function() {
-        
-// รับค่ากลับมา ว่ามีข้อมูลหรือไม่        
-    var check = "https://sheets.googleapis.com/v4/spreadsheets/1GYiGERPI21EU7BHGI2ihbrKrCTk18TUWXNgH9yK3wAU/values/M1?dateTimeRenderOption=SERIAL_NUMBER&majorDimension=DIMENSION_UNSPECIFIED&valueRenderOption=FORMATTED_VALUE&key=AIzaSyDaP4-U6DEs9SMBWntPc3vTVleCezswhHQ";
+
+// เช็คว่ามีแต้ม มีข้อมูลไหม
+  var check = "https://script.google.com/macros/s/AKfycbyXrseloGIis7XG7B1WLtGVlbQlSJsu81WKviYZpEfSusomKvZq/exec?id="+iiddd;
+
  request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
-        var info = JSON.parse(body);
+        //var info = JSON.parse(body);
         
-   console.log("values : "+info.values[0][0])
+   console.log("values : "+body);
       
-        if(info.values >= 10){
-var ppoint  = info.values[0][0];
+        if(body>= 10){
+var ppoint  = body;
 //console.log("ppoint : "+ppoint)
 return res.json({
     "messages": [
@@ -238,10 +233,10 @@ return res.json({
           
           
           
-        }else{
+        }else if (body == "Id not found" || body <= 9 ){
         // ไม่มีข่อมูล ส่งข้อมูล user ไปเก็บ /// ตอบกลับ ติดต่อเจ้าหน้าที่
-        var out = encodeURI(name);       
-      request("https://docs.google.com/forms/u/2/d/1iUGX58guFhU3bkt1OglhOGoDuv5i6mPQAs35gy4IOcw/formResponse?ifq&entry.1691916586="+Uu+"&entry.556749397="+out+"&entry.1687867422="+pictureUrl+"&entry.66040433=00&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
+        var sendName = encodeURI(name);       
+      request("https://docs.google.com/forms/u/2/d/1iUGX58guFhU3bkt1OglhOGoDuv5i6mPQAs35gy4IOcw/formResponse?ifq&entry.1691916586="+iiddd+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=00&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
 
 return res.json({
     "messages": [
@@ -405,8 +400,6 @@ return res.json({
         
         
 
-        
-}, 1500);//////////////// หน่วงเวลา
 
 
 
