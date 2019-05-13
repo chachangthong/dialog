@@ -363,7 +363,7 @@ return res.json({
           "type": "button",
           "action": {
             "type": "uri",
-            "label": "+ดูเพิ่มเติม",
+            "label": "ดูเพิ่มเติม.",
             "uri": "line://app/1566203051-GMalZd6Q"
           },
           "margin": "md",
