@@ -57,8 +57,8 @@ var data = req.body;
 
     iiddd = req.body.originalDetectIntentRequest.payload.data.source.userId; 
     //iiddd = req.body.originalRequest.data.source.userId; 
-
-console.log("uID -------------- : " + iiddd)
+console.log(JSON.stringify(userMsg));
+console.log("uID -------------- : " + req.body.originalDetectIntentRequest.payload.data)
 
 //ส่ง uid ไปไว้
 //request("https://docs.google.com/forms/u/2/d/1TX5G9W93A3r3qX29TDCZ-I5UQ7ek1nKpbRE99_IUUn0/formResponse?ifq&entry.815062337="+iiddd+"&submit=Submit");
