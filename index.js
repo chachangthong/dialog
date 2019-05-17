@@ -54,7 +54,9 @@ app.post("/webhook", function (req, res) {
 
 
 var data = req.body;    
-iiddd = req.body.originalRequest.data.source.userId; 
+
+    iiddd = req.body.originalDetectIntentRequest.payload.data.source.userId; 
+    //iiddd = req.body.originalRequest.data.source.userId; 
 
 console.log("uID -------------- : " + iiddd)
 
