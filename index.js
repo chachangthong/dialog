@@ -106,7 +106,7 @@ return res.json({
     "payload" : {
     "line":  {
   "type": "text",
-  "text": ppoint
+  "text": "Hello1"
 }
         
     }
@@ -130,7 +130,7 @@ return res.json({
     "payload" : {
     "line":  {
   "type": "text",
-  "text": "Hello"
+  "text": "Hello2"
 }
         
     }
