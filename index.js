@@ -57,7 +57,7 @@ var data = req.body;
 
    iiddd = req.body.originalDetectIntentRequest.payload.source.userId; 
     //iiddd = req.body.originalRequest.data.source.userId; 
-console.log(JSON.stringify(data));
+//console.log(JSON.stringify(data));
 console.log("uID -------------- : " + JSON.stringify(iiddd))
 
 //ส่ง uid ไปไว้
@@ -96,7 +96,7 @@ console.log(printdd)
       
         if(body>= 10){
 var ppoint  = body;
-//console.log("ppoint : "+ppoint)
+console.log("ppoint : "+ppoint)
 return res.json({
     "fulfillmentMessages": [
   {
