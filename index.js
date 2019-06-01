@@ -370,7 +370,7 @@ return res.json({
           "action": {
             "type": "uri",
             "label": "ดูเพิ่มเติม.",
-            "uri": "line://app/1566203051-GMalZd6Q"
+            "uri": "line://app/1580284203-nWdwE2zx"
           },
           "margin": "md",
           "height": "sm",
