@@ -25,15 +25,18 @@ app.listen(app.get('port'), function() {
     console.log('running on port', app.get('port'))
 })
 
+var Gdocs = process.env.Gdocs;
+var app_script = process.env.script;
+var Token = process.env.TOKEN;
+var access_token = 'Bearer {'+Token+'}'
 
-var token = process.env.TOKEN
 
 var iiddd = "";
 var name = "";
 var pictureUrl = "";
 
 var headers = {
-    'Authorization' : 'Bearer 3ElmV4hWhjHccuz34k3WUfm6MgrU3BmEkfYLIuPsfx/umpaLjWeLBXiXmGDAFgE+d2i0dO3htzvRV676dcTLV2wiaS29rfM26RIdDcvOBAKTDEVc2oavzhgZF5nApE/NGkuc81tGAKdq+ubskwLQS1GUYhWQfeY8sLGRXgo3xvw='
+       'Authorization' : access_token
 }
 
 
@@ -76,7 +79,7 @@ console.log(printdd)
 
 
 // เช็คว่ามีแต้ม มีข้อมูลไหม
-  var check = "https://script.google.com/macros/s/AKfycbyXrseloGIis7XG7B1WLtGVlbQlSJsu81WKviYZpEfSusomKvZq/exec?id="+UID;
+  var check = app_script+"?id="+UID;
 
  request(check, function (error, response, body) {
     if (!error && response.statusCode == 200) {
@@ -236,7 +239,7 @@ return res.json({
          }else if (body == "Id not found" || body <= 9 ){
         // ไม่มีข่อมูล ส่งข้อมูล user ไปเก็บ /// ตอบกลับ ติดต่อเจ้าหน้าที่
         var sendName = encodeURI(name);       
-      request("https://docs.google.com/forms/u/2/d/1iUGX58guFhU3bkt1OglhOGoDuv5i6mPQAs35gy4IOcw/formResponse?ifq&entry.1691916586="+UID+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=0&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
+      request(Gdocs+"?ifq&entry.1691916586="+UID+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=0&entry.1800492209=data2&entry.53513319=data3&entry.1987831678=data4&submit=Submit");
 
 
 
