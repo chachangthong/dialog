@@ -266,7 +266,7 @@ console.log("name--- > "+TT)
 
 if (intent == 'point - custom'){
 
-    var lookup = "=iferror(VLOOKUP("+TTName+",sheet4!A1:B21,2,0),0)"
+    var lookup = '=iferror(VLOOKUP("'+TTName+'",sheet4!A1:B21,2,0),0)'
     //var TTlookup = encodeURI(lookup); 
     
     
