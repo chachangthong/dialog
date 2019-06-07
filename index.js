@@ -265,8 +265,12 @@ var TTName = encodeURI(TT);
 console.log("name--- > "+TT)  
 
 if (intent == 'point - custom'){
- 
- request(Gdocs+"?ifq&entry.1691916586="+UID+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=0&entry.1800492209="+TTName+"&entry.53513319=data3&entry.1987831678=data4&submit=Submit"); 
+
+    var lookup = "=iferror(VLOOKUP(F5,sheet4!A1:B21,2,0),0)"
+    var TTlookup = encodeURI(lookup); 
+    
+    
+ request(Gdocs+"?ifq&entry.1691916586="+UID+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433="+TTlookup+"&entry.1800492209="+TTName+"&entry.53513319=data3&entry.1987831678=data4&submit=Submit"); 
  
     var sendName = encodeURI(name);   
    
