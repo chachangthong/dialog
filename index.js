@@ -256,13 +256,13 @@ return res.json({
         var sendName = encodeURI(name);   
 
 
-console.log("userID -------------- : "+data)  
- console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
+//console.log("userID -------------- : "+data)  
+//console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
 
 var intent = req.body.queryResult.intent.displayName; 
 var TT = req.body.queryResult.queryText; 
 var TTName = encodeURI(TT);  
-console.log("TT -------------- : "+TT)  
+console.log("name--- > "+TT)  
 
 if (intent == 'point - custom'){
  
