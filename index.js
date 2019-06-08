@@ -248,7 +248,7 @@ return res.json({
 
 
 console.log("userID -------------- : "+data)  
- console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
+//console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
 
 var intent = req.body.queryResult.intent.displayName; 
 var TT = req.body.queryResult.queryText; 
