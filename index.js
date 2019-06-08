@@ -82,17 +82,6 @@ console.log(printdd)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 // เช็คว่ามีแต้ม มีข้อมูลไหม
   var check = app_script+"?id="+UID;
 
@@ -248,6 +237,8 @@ return res.json({
             
             
             
+            
+            
           
           
           
@@ -256,25 +247,67 @@ return res.json({
         var sendName = encodeURI(name);   
 
 
-//console.log("userID -------------- : "+data)  
-//console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
+console.log("userID -------------- : "+data)  
+ console.log('ปริ้นทั้งหมด' + JSON.stringify(data))       
 
 var intent = req.body.queryResult.intent.displayName; 
 var TT = req.body.queryResult.queryText; 
 var TTName = encodeURI(TT);  
-console.log("name--- > "+TT)  
+console.log("name--- > "+TT) 
+
+
 
 if (intent == 'point - custom'){
-
-    var lookup = '=iferror(VLOOKUP("'+TTName+'",sheet4!A1:B21,2,0),0)'
-    //var TTlookup = encodeURI(lookup); 
-    
-    
+ 
  request(Gdocs+"?ifq&entry.1691916586="+UID+"&entry.556749397="+sendName+"&entry.1687867422="+pictureUrl+"&entry.66040433=0&entry.1800492209="+TTName+"&entry.53513319=data3&entry.1987831678=data4&submit=Submit"); 
+
+/////////////////////////////////////////////////////////////////////
+
+return res.json({
+    "fulfillmentMessages": [
+  {
+    "platform": "line",
+    "type": 4,
+    "payload" : {
+    "line":  
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////    
+
+    
+  {
+  "type": "template",
+  "altText": "ตรวจสอบชื่อ",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "message",
+        "label": "ถูกต้อง",
+        "text": "ถูกต้อง"
+      }
+    ],
+    "text": "กรุณาตรวจสอบชื่อ-สกุล ให้ถูกต้อง\n"+
+    "ชื่อ  : " + TT
+  }
+}  
+    
+     ////////////////////////////////////////////////////// /////////////////////////////////////////////////////////////////////////////////////////        
+        
+    
+}
+}
+]
+}); 
+    
+   
+    
+    
+    
+    
+/*
+
  
     var sendName = encodeURI(name);   
-   
-   
+
 /////////////////////////////////////////////////////////////////////
 
 return res.json({
@@ -423,7 +456,7 @@ return res.json({
 }); 
  
  
- 
+ */
  
  
  
@@ -802,3 +835,7 @@ return res.json({
 }) 
 
 });
+
+
+
+
